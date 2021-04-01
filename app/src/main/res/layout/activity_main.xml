@@ -37,11 +37,12 @@
         android:layout_marginTop="19dp"
         android:max="359"
         android:maxHeight="30dp"
-        android:progress="30"
+        android:progress="0"
         android:progressDrawable="@drawable/seekbar"
         android:thumb="@drawable/seekbar_thumb"
         android:thumbOffset="0dp"
         android:splitTrack="false"
-        android:foregroundGravity="center_vertical"/>
+        android:background="@null"
+        />
 
 </RelativeLayout>

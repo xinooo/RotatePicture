@@ -9,27 +9,32 @@ import android.graphics.Matrix;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 
 public class MainActivity extends AppCompatActivity {
 
-    private View img;
+    private ImageView img;
     private SeekBar seekBar;
+    private int agree = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        img = (View)findViewById(R.id.pic);
+        img = (ImageView)findViewById(R.id.pic);
         seekBar = (SeekBar) findViewById(R.id.seekBar);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
-//                img.setBackground(rotateBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.pic1, null), progress));
-                img.animate().rotation(progress);
+                img.setImageDrawable(rotateBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.pic2, null), progress));
+//                img.animate().rotation(progress);
+                agree = progress;
             }
 
             @Override
@@ -40,16 +45,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(final SeekBar seekBar) {
                 seekBar.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_failed));
-
+                seekBar.setThumbOffset(dp2px(30)*agree/360);
+                seekBar.setSplitTrack(false);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        seekBar.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb));
+                        seekBar.setSplitTrack(false);
                         seekBar.setProgress(0);
+                        seekBar.setThumbOffset(0);
                     }
                 },1000);
 
             }
         });
+    }
+
+    private int dp2px(float dp) {
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        return (int) (dp * (metrics.densityDpi / 160f) + 0.5F);
     }
 
 
