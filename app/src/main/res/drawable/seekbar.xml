@@ -4,29 +4,29 @@
         <shape>
             <corners android:radius="20dp" />
             <solid android:color="#16dda9" />
+            <solid android:color="#00ffffff" />
+            <stroke android:color="@color/colorAccent" android:width="1dp"/>
         </shape>
     </item>
 
-    <item android:id="@android:id/secondaryProgress">
+    <item android:id="@android:id/secondaryProgress" android:top="2dp" android:bottom="2dp">
         <clip>
             <shape>
                 <corners android:radius="20dp" />
-                <solid android:color="#ae734a" />
+                <solid android:color="#FFefefef" />
             </shape>
         </clip>
     </item>
 
-    <item android:id="@android:id/progress">
+    <item android:id="@android:id/progress"
+        android:top="3dp"
+        android:bottom="3dp"
+        android:left="3dp"
+        android:right="3dp">
         <clip>
             <shape>
                 <corners android:radius="20dp" />
-<!--                <gradient-->
-<!--                    android:type="linear"-->
-<!--                    android:angle="0"-->
-<!--                    android:startColor="#0cffff00"-->
-<!--                    android:endColor="#FFffff00"-->
-<!--                    />-->
-                <solid android:color="#FFffff00" />
+                <solid android:color="#FFefefef" />
             </shape>
         </clip>
     </item>

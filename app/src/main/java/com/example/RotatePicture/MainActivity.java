@@ -10,6 +10,7 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.SeekBar;
 
@@ -37,7 +38,15 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
+            public void onStopTrackingTouch(final SeekBar seekBar) {
+                seekBar.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_failed));
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        seekBar.setProgress(0);
+                    }
+                },1000);
 
             }
         });
