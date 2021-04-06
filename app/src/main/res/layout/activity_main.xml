@@ -16,6 +16,15 @@
         android:layout_centerHorizontal="true"
         android:src="@mipmap/pic2"/>
 
+    <ImageView
+        android:id="@+id/pic2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="center"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/a_src_success"
+        android:visibility="gone"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30dp"
@@ -34,10 +43,9 @@
         android:maxHeight="30dp"
         android:progress="0"
         android:progressDrawable="@drawable/seekbar"
-        android:thumb="@drawable/seekbar_thumb"
+        android:thumb="@drawable/seekbar_thumb_start"
         android:thumbOffset="0dp"
         android:splitTrack="false"
-        android:background="@null"
-        />
+        android:background="@null"/>
 
 </RelativeLayout>
